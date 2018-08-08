@@ -1,0 +1,114 @@
+
+<html>
+
+<body>
+This is our heart disease predictor
+<br>
+
+Age:
+  <input id="age" type="number" value="42">
+<br>
+
+Gender:
+  <select id="gender">
+    <option value='M'>Male</option>
+    <option value='F'>Female</option>
+  </select>
+<br>
+
+Resting Blood Pressure:
+  <input id="resting_blood_pressure" type="number" value="145">
+<br>
+
+Serum Cholesterol:
+  <input id="serum_cholesterol" type="number" value="233">
+<br>
+
+Chest Pain:
+  <select id="chest_pain">
+    <option value='TA'>typical angina</option>
+    <option value='AA'>atypical angina</option>
+    <option value='NP'>non-anginal pain</option>
+    <option value='A'>asymptomatic</option>
+  </select>
+<br>
+
+Slope of the peak exercise ST segment:
+  <select id="slope">
+    <option value='US'>upsloping</option>
+    <option value='F'>flat</option>
+    <option value='DS'>downsloping</option>
+  </select>
+<br>
+
+Number of major vessels colored by fluoroscopy:
+  <select id="ca">
+    <option value='Z'>zero</option>
+    <option value='O'>one</option>
+    <option value='T'>two</option>
+    <option value='TH'>three</option>
+  </select>
+<br>
+
+Thal Test:
+  <select id="thal">
+    <option value='N'>normal</option>
+    <option value='FD'>fixed defect</option>
+    <option value='RD'>reversible defect</option>
+  </select>
+<br>
+
+  <div>
+    <button id="submit">Make prediction</button>
+  </div>
+
+  Our prediction is:
+  <table>
+    <tr><td>You will</td><td id="hard_predict"></td></tr>
+    <tr><td>Probability</td><td id="soft_predict"></td></tr>
+  </table>
+
+</body>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"> </script>
+  <script>
+
+  $('#submit').click( () => {cool(); } );
+
+  function cool(){
+    let features = {
+       'age': $('#age').val(),
+       'sex': $('#gender').val(),
+       'resting_blood_pressure': $('#resting_blood_pressure').val(),
+       'serum_cholesterol': $('#serum_cholesterol').val(),
+       'chest_pain_2.0': $('#chest_pain').val(),
+       'chest_pain_3.0': $('#chest_pain').val(),
+       'chest_pain_4.0': $('#chest_pain').val(),
+       'slope_2.0': $('#slope').val(),
+       'slope_3.0': $('#slope').val(),
+       'num_major_vessels_1.0': $('#ca').val(),
+       'num_major_vessels_2.0': $('#ca').val(),
+       'num_major_vessels_3.0': $('#ca').val(),
+       'thal_6.0': $('#thal').val(),
+       'thal_7.0': $('#thal').val()
+    }
+    console.log(features);
+
+    $.ajax({
+  type: "POST",
+  contentType: "application/json; charset=utf-8",
+  url: "/predict",  // Replace with URL of POST handler
+  dataType: "json",
+  async: true,
+  data: JSON.stringify(features),
+  success: (result) => {
+    $('#hard_predict').html(result['prediction'] ? 'have heart disease': 'no heart disease');
+    $('#soft_predict').html(result['prob_heart_diseased']);
+  },
+  error: (result) => {
+    aleart('I dunno what you did');
+  }
+})
+  }
+  </script>
+
+</html>
