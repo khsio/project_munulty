@@ -17,5 +17,5 @@ For model evaluation, I will use recall score as my primary metric. Because I wa
 ## Getting Started
 * `notebooks` - My code for exploratory data analysis and my modelings are in this folder. 
 * `web_app` - This folder contains the HTML, CSS, pickle file, and api for my web app.  
-* `presentation` - This is the deck that I used to present in Metis. For references, please refer to the reference page in my deck.
+* `presentation` - This is the deck that I used to present in [Metis](https://www.thisismetis.com/). For references, please refer to the reference page in my deck.
 
