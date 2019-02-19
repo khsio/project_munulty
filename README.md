@@ -6,7 +6,7 @@ Having a healthy body is the key for you to achieve all the things/goals that yo
 
 This is why I think early detection of heart disease is very important. So people can be treated earlier and possibly saving their life. This is why I want to build a system to help doctors better classify or reinforce their decisions. And hopefully that could also possibly saves medical expenses, productivity lost, and more importantly saving a friend or family member of someone.  
 
-For complete write-up of this project, please go to my post on [medium](https://medium.com/@kahousio).
+For complete write-up of this project, please go to my post on [medium](https://medium.com/@kahousio/will-you-have-heart-disease-a-heart-disease-predictor-using-machine-learning-38df796f562d).
 
 ## Project Design
 The problem that I am trying to solve is to predict/classify whether a person has heart disease or not based on some of the personal info and medical test results.  
