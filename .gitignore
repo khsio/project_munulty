@@ -1,5 +1,5 @@
-*.md~*
-*.gitignore~*
+*.md*
+*.gitignore*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
